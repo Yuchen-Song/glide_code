@@ -1,0 +1,33 @@
+# Load machine-specific values once before running these commands:
+#   source .env
+
+MARKER_TASK="Pick up the marker with one gripper, transfer it to the other gripper, and lift it upright on the table."
+PLATE_TASK="Use both arms to pick up the plate and put it onto the box."
+WINE_TASK="Use the left gripper to pick up the wine bottle, use the right hand to pick up the wine cup, and pour wine from the bottle into the cup."
+
+# TELEOP: marker handover and stand
+python scripts/teleop.py --repo-id data/marker --num-episodes 10 --task "$MARKER_TASK"
+python scripts/teleop.py --repo-id data/marker_manual --num-episodes 10 --task "$MARKER_TASK" --manual
+python scripts/teleop.py --repo-id data/marker_glide --num-episodes 10 --task "$MARKER_TASK" --glide
+
+# TELEOP: tomato plate lift
+python scripts/teleop.py --repo-id data/plate --num-episodes 10 --task "$PLATE_TASK"
+python scripts/teleop.py --repo-id data/plate_manual --num-episodes 10 --task "$PLATE_TASK" --manual
+python scripts/teleop.py --repo-id data/plate_glide --num-episodes 10 --task "$PLATE_TASK" --glide
+
+# TELEOP: wine serving with CRAFT hand
+python scripts/teleop_craft.py --repo-id data/wine --num-episodes 10 --task "$WINE_TASK"
+python scripts/teleop_craft.py --repo-id data/wine_manual --num-episodes 10 --task "$WINE_TASK" --manual
+python scripts/teleop_craft.py --repo-id data/wine_glide --num-episodes 10 --task "$WINE_TASK" --glide
+
+# POLICY: marker handover and stand
+python scripts/policy_client.py --repo-id eval/marker --num-episodes 10 --task "$MARKER_TASK"
+python scripts/policy_client.py --repo-id eval/marker_guarded --num-episodes 10 --task "$MARKER_TASK" --guarded
+
+# POLICY: tomato plate lift
+python scripts/policy_client.py --repo-id eval/plate --num-episodes 10 --task "$PLATE_TASK"
+python scripts/policy_client.py --repo-id eval/plate_guarded --num-episodes 10 --task "$PLATE_TASK" --guarded
+
+# POLICY: wine serving with CRAFT hand
+python scripts/policy_client_craft.py --repo-id eval/wine --num-episodes 10 --task "$WINE_TASK"
+python scripts/policy_client_craft.py --repo-id eval/wine_guarded --num-episodes 10 --task "$WINE_TASK" --guarded
