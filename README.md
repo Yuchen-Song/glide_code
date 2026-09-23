@@ -1,5 +1,5 @@
 <h1 align="center"><img src="img/icon.png" width="24" alt="GLIDE icon"> GLIDE:<br/>
-Guardrails for Learning from Infeasible Demonstrations Efficiently</h1>
+Learning Beyond What Humans Can Demonstrate</h1>
 
 <p align="center">
     <a href="https://yuchen-song.github.io/"><strong>Yuchen Song</strong></a>
@@ -15,7 +15,7 @@ Guardrails for Learning from Infeasible Demonstrations Efficiently</h1>
 
 <div align="center">
 
-[![Paper](https://img.shields.io/badge/arXiv-TBD-maroon.svg)](https://arxiv.org/abs/)
+[![Paper](https://img.shields.io/badge/arXiv-2609.24996-maroon.svg)](https://arxiv.org/abs/2609.24996)
 [![Website](https://img.shields.io/badge/Website-github.io-green)](https://guardrail-policy.github.io/)
 [![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-yellow.svg)](https://huggingface.co/datasets/yuchensong/glide_data)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-yellow.svg)](LICENSE)
@@ -275,5 +275,10 @@ maintainers.
 ## Citation
 
 ```bibtex
-TBD
+@article{song2026glide,
+  title={Learning Beyond What Humans Can Demonstrate},
+  author={Song, Yuchen and Mittal, Aditya and Jain, Unnat},
+  journal={arXiv preprint arXiv:2609.24996},
+  year={2026}
+}
 ```
